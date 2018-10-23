@@ -22,4 +22,4 @@ class PlaceCard extends Component {
   }
 }
 
-export default PlaceCard
+export default PlaceCard;

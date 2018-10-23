@@ -12,15 +12,16 @@ class SearchComponent extends Component {
 
   render () {
   	let {updateSearch, queriedPlaces, placeClick} = this.props;
+
     return (
       <Menu>
-       <input type="text" id="search-input" placeholder="type a salon name" onChange = {(event) => updateSearch(event.target.value)}/>
+       <input type="text" id="search-input" placeholder="type a salon name" onChange={(event) => updateSearch(event.target.value)}/>
        <ul id="places-list">
           {
-            queriedPlaces.map(function(place){
+            queriedPlaces.map(function(place) {
               return (
-                <li className="transition" title={ place.name } key={ place.id } onClick={ placeClick.bind(this, place.id) }>
-                  <PlaceCard place = {place} />
+                <li title={ place.name } key={ place.id } onClick={ placeClick.bind(this, place.id) }>
+                  <PlaceCard place={place} />
                 </li>
               )
             })

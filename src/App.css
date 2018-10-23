@@ -1,5 +1,5 @@
 /* App Layout*/
-.App {
+.main {
   text-align: center;
 }
 
@@ -12,7 +12,7 @@
   font-size: 1.5em;
 }
 
-/* sidebar */
+/* sidebar from react-burger-menu */
 .bm-burger-button {
   position: fixed;
   width: 36px;
@@ -29,6 +29,7 @@
   height: 24px;
   width: 24px;
 }
+
 .bm-cross {
   background: #bdc3c7;
 }
@@ -51,17 +52,18 @@
 .bm-item {
   display: inline-block;
 }
+
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
   position: relative !important;
 }
+
 .bm-menu-wrap {
   top: 50px;
 }
 
 /* Places list */
 #places-list, #search-input {
-  margin: 0px;
   padding: 5px;
   width: 100%;
 }
@@ -82,9 +84,25 @@
 
 /* Map CSS */
 #containerElement {
-   top: 50px;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+/* Modal window - when data fails to laod */
+.content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  marginRight: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.ReactModal__Overlay  {
+  height: 160px;
+  background: lightgrey;
+  top: 100px;
 }

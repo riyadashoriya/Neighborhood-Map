@@ -18,12 +18,13 @@ const MapComponent = compose(
     center= { props.center } >
 
     {
-    	props.isMarkerShown && 
+    	/* Show all the markers on the map */
+    	props.isMarkerVisible && 
     	Object.keys(props.markers).map(function(key, index) {
 				return (
 				<Marker key={key} position= {props.markers[key]} onClick={props.onMarkerClick.bind(this,key)}>
 
-				{
+				{ /* Show info if the place is selected */
 					props.selectedPlace && (props.selectedPlace[0].id === key) &&
 				  <InfoWindow position={props.selectedPlace.location}>
 				    <PlaceCard place = {props.selectedPlace[0]} />
