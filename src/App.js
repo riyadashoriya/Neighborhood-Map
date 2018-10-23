@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import MapComponent from './MapComponent';
-import SearchComponent from './SearchComponent';
+import MapComponent from './components/MapComponent';
+import SearchComponent from './components/SearchComponent';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
