@@ -1,5 +1,5 @@
 # Neighborhood-Map
-A Book Tracking App
+A Neighborhood Map App
 
 This is a Neighborhood Map App using React for Udacity's Front End Nanodegree course. The app shows a list of salons in salt lake city, and marks on the map. The user can search for a specific salon. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
