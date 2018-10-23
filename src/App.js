@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MapComponent from './MapComponent';
 import SearchComponent from './SearchComponent';
 
 class App extends Component {
-state = {
+  state = {
     isMarkerShown: false,
-
-      places: null,
-      markers: null,
-      lastClickedPlace: null,
-      lastClickedMarker: null,
-      queriedPlaces: [],
-      lat:40.760981254004264,
-      lan: -111.89117340652818,
-      selectedPlace: null
+    places: null,
+    markers: null,
+    queriedPlaces: [],
+    center: {
+      lat: 40.760981254004264,
+      lng: -111.89117340652818
+    },
+    selectedPlace: null
   }
 
-  delayedShowMarker = () => {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 500)
-  }
-
-  handleMarkerClick = (key) => {
-    this.setState({ isMarkerShown: false })
-    this.delayedShowMarker()
-    var x = this.state.places.filter(m => m.id == key);
-    this.setState({selectedPlace: x});
-  }
-constructor() {
-    super();
-    this.loadPlaces = this.loadPlaces.bind(this);
-    this.liPlaceClick = this.liPlaceClick.bind(this);
+  handleMarkerClick = (id) => {
+    var selectedPlace = this.state.places.filter(place => place.id === id);
+    this.setState({selectedPlace: selectedPlace, center: {"lat": selectedPlace[0].location.lat, "lng": selectedPlace[0].location.lng}});
   }
 
   loadPlaces() {
@@ -43,33 +28,30 @@ constructor() {
     '&client_secret=LKGLW5WQEMB1Y40QBYKGL1CYMA0DI1XMUZLRQ1ESOOVH44ER&v=20130815%20&limit=33&near=' + city + '&query=' + query + '';
 
     return fetch(apiURL)
-    .then(function(resp){ return resp.json() })
+    .then(function(response){ return response.json() })
     .then(function(json){ return Promise.resolve(json); })
   }
 
   componentDidMount() {
-    this.delayedShowMarker()
     let self = this;
     self.loadPlaces()
     .then(function(data){
-      let places = [];
       let markers = {};
-      let x = Object.values(data.response.venues);
-    
       for(let venue of data.response.venues) {
         markers[venue.id] = {"id": venue.id, "lat": parseFloat(venue.location.lat), "lng": parseFloat(venue.location.lng)};
       }
 
-      self.setState({ places: data.response.venues, markers: markers, queriedPlaces: data.response.venues });
+      self.setState({ places: data.response.venues, markers: markers, queriedPlaces: data.response.venues, isMarkerShown: true });
     })
   }
- //Fetch the list of books from server based on the input in search bar.
+
+  //Fetch the list of books from server based on the input in search bar.
   updateSearch(query) {
     query = query.trim();
     //Search only if the input has a character.
     this.state.queriedPlaces = this.state.places;
     if (query) {
-      var queriedPlaces= this.state.queriedPlaces.filter(a => a.name.toUpperCase().startsWith(query.toUpperCase()));
+      let queriedPlaces= this.state.queriedPlaces.filter(a => a.name.toUpperCase().startsWith(query.toUpperCase()));
       this.setState({queriedPlaces});
     } else {
       //If the input is blank spaces or empty
@@ -77,25 +59,19 @@ constructor() {
     }
   };
 
-  liPlaceClick(place) {
-    console.log(place);
-    this.setState({ lastClickedPlace: place, lat: place.location.lat, lan: place.location.lng });
-    this.handleMarkerClick(place.id);
-  }
   render() {
     return (
       <div className="App">
-        <div style = {{ height: '50px', background: 'gray'}}><span style = {{fontSize:'xx-large'}}>Neighborhood Map</span>
+        <div className="header"><span className="title">Neighborhood Map</span>
         <SearchComponent 
-          liPlaceClick={this.liPlaceClick} 
+          placeClick = {this.handleMarkerClick} 
           updateSearch = {(query) => this.updateSearch(query)}
-          queriedPlaces={this.state.queriedPlaces} /></div>
+          queriedPlaces = {this.state.queriedPlaces} /></div>
         <MapComponent 
           markers = {this.state.markers}
-          lat = {this.state.lat}
-          lan = {this.state.lan}
-          isMarkerShown={this.state.isMarkerShown}
-          onMarkerClick={this.handleMarkerClick}
+          center = {this.state.center}
+          isMarkerShown = {this.state.isMarkerShown}
+          onMarkerClick = {this.handleMarkerClick}
           selectedPlace = {this.state.selectedPlace} />
       </div>
     );

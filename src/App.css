@@ -1,96 +1,66 @@
-body {
-  overflow: hidden;
-}
-
+/* App Layout*/
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.header {
+  background: gray;
+  height: 50px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
+.title {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+/* sidebar */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 20px;
+  top: 10px;
 }
 
-.transition {
-  -webkit-transition: transition 0.3s;
-  -moz-transition: transition 0.3s;
-  -o-transition: transition 0.3s;
-  -ms-transition: transition 0.3s;
-  transition: 0.3s;
+.bm-burger-bars {
+  background: #373a47;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+.bm-cross {
+  background: #bdc3c7;
 }
 
-/* --- */
-
-#navbar {
-  position: relative;
-  z-index: 100;
-  box-shadow: 0px 1px 1px grey;
-  background: black;
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
 }
 
-#sidebar {
-  position: absolute;
-  z-index: 100;
-  box-shadow: 0px 1px 1px grey;
-  background: #f2f2f2;
-  width: 325px;
-  max-width: 100%;
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  padding: 10px;
+.bm-morph-shape {
+  fill: #373a47;
 }
 
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
 
-#head-text {
-  margin: 0px;
-  color: white;
-  height: 60px;
-  line-height: 60px;
-  vertical-align: middle;
-  padding: 0px 20px;
-  word-spacing: 1.5px;
-  letter-spacing: 1.5px;
+.bm-item {
   display: inline-block;
 }
-
-#menu-text {
-  float: right;
-  margin: 0px;
-  color: white;
-  height: 60px;
-  line-height: 60px;
-  vertical-align: middle;
-  padding: 0px 20px;
-  word-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  cursor: pointer;
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: relative !important;
 }
-#menu-text:hover {
-  background: #f2f2f2;
-  color: black;
+.bm-menu-wrap {
+  top: 50px;
 }
 
-#places-list {
+/* Places list */
+#places-list, #search-input {
   margin: 0px;
   padding: 5px;
   width: 100%;
@@ -108,4 +78,13 @@ body {
 
 #places-list li:hover {
   background: lightgrey;
+}
+
+/* Map CSS */
+#containerElement {
+   top: 50px;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   position: absolute;
 }
