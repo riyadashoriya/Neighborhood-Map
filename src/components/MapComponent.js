@@ -5,7 +5,7 @@ import PlaceCard from './PlaceCard';
 
 const MapComponent = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDhurMXRNeJHZNHxJKoix8zuqnFekEHhCo&libraries=geometry,drawing,places",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCY7kS1SoHmWDew9tTrpuyj0s19fO2g4OY&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div id="containerElement" />,
     mapElement: <div style={{ height: `100%` }} />,

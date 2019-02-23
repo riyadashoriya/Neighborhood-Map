@@ -2,7 +2,7 @@
   "name": "neighborhood-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://riyadashoriya.github.io/Neighborhood-Map",
+  "homepage": "https://riyadashoriya.github.io/Neighborhood-Map/",
   "dependencies": {
     "react": "^16.5.2",
     "react-burger-menu": "^2.5.4",
@@ -13,12 +13,12 @@
     "recompose": "^0.30.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+   "start": "react-scripts start",
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d build",
+   "build": "react-scripts build",
+   "test": "react-scripts test",
+   "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
