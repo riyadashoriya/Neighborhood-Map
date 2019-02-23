@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Neighborhood-Map/public/index.html/precache-manifest.b0efb540ee3eaabc99a11e77c65ebb19.js"
+  "/Neighborhood-Map/precache-manifest.66465f8ce18cf209cd030a4cf925edac.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Neighborhood-Map/public/index.html/index.html", {
+workbox.routing.registerNavigationRoute("/Neighborhood-Map/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
